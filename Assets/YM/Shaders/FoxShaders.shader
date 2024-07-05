@@ -1,4 +1,4 @@
-﻿Shader "Toon/SoftSurface"
+﻿Shader "Toon/FoxSurface"
 {
     Properties
     {
@@ -9,7 +9,7 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Fade" }
         LOD 100
 
         CGPROGRAM
@@ -28,8 +28,11 @@
         void surf (Input IN, inout SurfaceOutput o)
         {
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            //c.rgb.Alpha = 1;
+            
+            
             o.Albedo = c.rgb;
+            c.a = 0;
+            
             // Re-use the same texture on emission to give the soft look
             o.Emission = tex2D (_MainTex, IN.uv_MainTex) * _Emission;
             o.Alpha = c.a;
