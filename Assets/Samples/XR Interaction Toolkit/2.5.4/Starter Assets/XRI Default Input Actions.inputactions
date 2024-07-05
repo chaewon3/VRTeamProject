@@ -781,6 +781,27 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+<<<<<<< HEAD
+=======
+                },
+                {
+                    "name": "ButtonA",
+                    "type": "Button",
+                    "id": "d4c13872-51a8-496d-9347-29f0c0b92996",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ButtonB",
+                    "type": "Button",
+                    "id": "46a7e0d1-bdb7-4d14-9adc-629d732b983a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
                 }
             ],
             "bindings": [
@@ -948,6 +969,31 @@
                     "action": "Scale Delta",
                     "isComposite": false,
                     "isPartOfComposite": false
+<<<<<<< HEAD
+=======
+                },
+                {
+                    "name": "",
+                    "id": "0987b6ba-ab1c-416e-9265-bda8e9258212",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ButtonA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2dd05868-6d21-45f8-adc0-8013fa2b933c",
+                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ButtonB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
                 }
             ]
         },
