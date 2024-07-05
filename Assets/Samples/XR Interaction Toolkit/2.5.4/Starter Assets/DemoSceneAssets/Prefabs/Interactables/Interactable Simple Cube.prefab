@@ -150,7 +150,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
+<<<<<<< HEAD
+    m_Bits: 1
+=======
     m_Bits: 4294967295
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1

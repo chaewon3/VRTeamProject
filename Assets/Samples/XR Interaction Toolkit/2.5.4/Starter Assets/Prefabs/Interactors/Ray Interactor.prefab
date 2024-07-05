@@ -52,7 +52,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_InteractionLayers:
+<<<<<<< HEAD
+    m_Bits: 1
+=======
     m_Bits: 55
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -209,7 +213,11 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
+<<<<<<< HEAD
+    widthMultiplier: 0.02
+=======
     widthMultiplier: 0.005
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
     widthCurve:
       serializedVersion: 2
       m_Curve:

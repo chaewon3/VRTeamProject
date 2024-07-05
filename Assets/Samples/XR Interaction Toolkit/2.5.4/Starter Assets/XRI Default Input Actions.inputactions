@@ -781,6 +781,8 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+<<<<<<< HEAD
+=======
                 },
                 {
                     "name": "ButtonA",
@@ -799,6 +801,7 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
                 }
             ],
             "bindings": [
@@ -966,6 +969,8 @@
                     "action": "Scale Delta",
                     "isComposite": false,
                     "isPartOfComposite": false
+<<<<<<< HEAD
+=======
                 },
                 {
                     "name": "",
@@ -988,6 +993,7 @@
                     "action": "ButtonB",
                     "isComposite": false,
                     "isPartOfComposite": false
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
                 }
             ]
         },

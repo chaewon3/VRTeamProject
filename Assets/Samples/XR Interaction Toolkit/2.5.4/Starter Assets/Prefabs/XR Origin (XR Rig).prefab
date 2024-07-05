@@ -94,7 +94,11 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
+<<<<<<< HEAD
+  m_ModelPrefab: {fileID: 8270855663187062767, guid: 1392f805216c47742996d4742c80721c, type: 3}
+=======
   m_ModelPrefab: {fileID: 4330663596433747094, guid: e0ea3a7d605039545b3e6e9461b2415f, type: 3}
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
   m_ModelParent: {fileID: 202364688}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -1754,10 +1758,13 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2761784063978902504, guid: c1800acf6366418a9b5f610249000331, type: 3}
+<<<<<<< HEAD
+=======
       propertyPath: m_Parameters.widthMultiplier
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2761784063978902504, guid: c1800acf6366418a9b5f610249000331, type: 3}
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
       propertyPath: m_Parameters.numCornerVertices
       value: 4
       objectReference: {fileID: 0}
@@ -2183,10 +2190,13 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2761784063978902504, guid: c1800acf6366418a9b5f610249000331, type: 3}
+<<<<<<< HEAD
+=======
       propertyPath: m_Parameters.widthMultiplier
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2761784063978902504, guid: c1800acf6366418a9b5f610249000331, type: 3}
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
       propertyPath: m_Parameters.numCornerVertices
       value: 4
       objectReference: {fileID: 0}
@@ -2809,10 +2819,13 @@ PrefabInstance:
       propertyPath: m_RayOriginTransform
       value: 
       objectReference: {fileID: 716906830792148215}
+<<<<<<< HEAD
+=======
     - target: {fileID: 7693184380767619946, guid: ad818c36731146e994540a1896ad8f24, type: 3}
       propertyPath: m_Parameters.widthMultiplier
       value: 0.005
       objectReference: {fileID: 0}
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad818c36731146e994540a1896ad8f24, type: 3}
 --- !u!114 &285389467476424711 stripped
@@ -2898,10 +2911,13 @@ PrefabInstance:
       propertyPath: m_RayOriginTransform
       value: 
       objectReference: {fileID: 8718302446126152263}
+<<<<<<< HEAD
+=======
     - target: {fileID: 7693184380767619946, guid: ad818c36731146e994540a1896ad8f24, type: 3}
       propertyPath: m_Parameters.widthMultiplier
       value: 0.005
       objectReference: {fileID: 0}
+>>>>>>> 4ef0edb77ee93c57dc8a4510701d1ef487832065
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad818c36731146e994540a1896ad8f24, type: 3}
 --- !u!114 &19064736505062540 stripped
