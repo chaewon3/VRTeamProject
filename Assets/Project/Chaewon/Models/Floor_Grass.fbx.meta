@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ab25b00fb6df1e244b52b388319f8654
-timeCreated: 1475851540
+guid: 432cef98525dab649a2ab17b773cb258
+timeCreated: 1475849942
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Crops_GreenPlants
+    4300000: Floor_Grass_2m
   materials:
     importMaterials: 1
     materialName: 0
