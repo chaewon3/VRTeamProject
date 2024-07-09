@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooling : MonoBehaviour
+public class GunPooling : MonoBehaviour
 {
     public GameObject prefab;
     public Transform SpawnPoint;
@@ -10,9 +10,10 @@ public class ObjectPooling : MonoBehaviour
 
     void Awake()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 4; i++)
         {
-            GameObject obj = Instantiate(prefab, SpawnPoint.position, Quaternion.identity);
+            GameObject obj = Instantiate(prefab, transform);
+            obj.name = $"Gun{i}";
             obj.SetActive(false);
             pool.Enqueue(obj);
         }
@@ -20,27 +21,22 @@ public class ObjectPooling : MonoBehaviour
 
     public GameObject GetObj()
     {
-        if (pool.Count == 0)
+        if(pool.Count == 0)
         {
-            print(" null 반환");
             return null;
         }
+        GameObject gun = pool.Dequeue();
+        gun.SetActive(true);
+        gun.GetComponent<Rigidbody>().useGravity = false;
+        gun.transform.position = SpawnPoint.position;
+        gun.transform.rotation = SpawnPoint.rotation;
 
-        GameObject bullet = pool.Dequeue();
-        bullet.SetActive(true);
-        bullet.transform.position = SpawnPoint.position;
-        bullet.transform.SetParent(null);
-        print(" bullet 반환");
-
-        return bullet;
+        return gun;
     }
 
     public void ReturnObj(GameObject obj)
     {
         obj.SetActive(false);
-        obj.transform.SetParent(transform);
         pool.Enqueue(obj);
     }
-
-    
 }
