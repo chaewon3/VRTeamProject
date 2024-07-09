@@ -13,6 +13,6 @@ public class Bullet : MonoBehaviour
             hitable.Hit(damage);
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

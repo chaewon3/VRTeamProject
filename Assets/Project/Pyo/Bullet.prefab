@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9031775881104408020}
   - component: {fileID: 2642010598345498789}
   m_Layer: 0
-  m_Name: SphereProjectile
+  m_Name: Bullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ Rigidbody:
   m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
