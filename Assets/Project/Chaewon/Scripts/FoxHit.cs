@@ -22,12 +22,19 @@ public class FoxHit : MonoBehaviour, IHitable
         if (currentHP <= 0)
         {
             animation.SetTrigger("IsDead");
-            animaltransparency.DisspearCoroutine();
-            Destroy(this.gameObject, 1.5f);
+            //animaltransparency.DisspearCoroutine();
+            StartCoroutine(FoxDisappear());
         }
     }
     public void Hit(float damage)
     {
         currentHP -= damage;
+    }
+
+    IEnumerator FoxDisappear()
+    {
+        animaltransparency.DisspearCoroutine();
+        yield return new WaitForSeconds(animaltransparency.duration);
+        gameObject.SetActive(false);
     }
 }

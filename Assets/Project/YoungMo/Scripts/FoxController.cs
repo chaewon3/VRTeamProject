@@ -8,7 +8,8 @@ public class FoxController : MonoBehaviour
 
 
     Transform henTransform;
-    Transform foxSpawnPoint;
+    public Transform foxSpawnPoint;
+    bool alreadyReferred = false;
 
     // 이렇게 해놓고 오브젝트 풀링을 통해
     // 닭과 여우 스폰 위치를 저장하고 활성화 될때 부여하기
@@ -19,32 +20,73 @@ public class FoxController : MonoBehaviour
     // 여우가 이동하게 만들기
     // 
 
+    AnimalTransparency at;
+    bool canMove = false;
+
+    private void Start()
+    {
+        
+    }
+
+    private void OnEnable()
+    {
+        if (alreadyReferred)
+        {
+            
+        }
+        at = GetComponent<AnimalTransparency>();
+        StartCoroutine(FoxAppear());
+
+    }
+
+    IEnumerator FoxAppear()
+    {
+        SetFoxTransform();
+
+        if (at == null)
+        {
+            print("at null");
+        }
+        //at.DisspearCoroutine();
+        yield return new WaitForSeconds(at.duration);
+        canMove = true;
+    }
+
     public float speed = 5f; // 이동 속도
 
     void Update()
     {
-        // 현재 위치와 목표 위치를 가져옵니다.
-        Vector3 currentPosition = transform.position;
-        Vector3 targetPosition = henTransform.position;
-
-        // 목표 위치를 바라보도록 회전합니다.
-        Vector3 direction = (targetPosition - currentPosition).normalized;
-        direction.y = 0; // Y축 회전을 고정합니다.
-
-        if (direction != Vector3.zero)
+        if (canMove)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * speed);
+            Vector3 currentPosition = transform.position;
+            Vector3 targetPosition = henTransform.position;
+
+            Vector3 direction = (targetPosition - currentPosition).normalized;
+            direction.y = 0;
+
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * speed);
+            }
+
+            transform.position = Vector3.MoveTowards(currentPosition, new Vector3(targetPosition.x, currentPosition.y, targetPosition.z), speed * Time.deltaTime);
+
+            if (Vector3.Magnitude(currentPosition - targetPosition) <= 1)
+            {
+                canMove = false;
+
+            }
         }
 
-        // 목표 위치로 이동합니다.
-        transform.position = Vector3.MoveTowards(currentPosition, new Vector3(targetPosition.x, currentPosition.y, targetPosition.z), speed * Time.deltaTime);
     }
 
-    private void LateUpdate()
+    IEnumerator FoxAttack()
     {
-        
+        yield return new WaitForSeconds(1.0f);
+        gameObject.SetActive(false);
     }
+
 
     public void SetHenTransform(Transform value)
     {
@@ -57,6 +99,18 @@ public class FoxController : MonoBehaviour
 
     public void SetFoxTransform()
     {
+        if (foxSpawnPoint == null)
+        {
+            print("foxspawn error");
+            return;
+        }
+
+        if (this.gameObject == null)
+        {
+            print("foxObject error");
+            return;
+        }
+
         transform.position = foxSpawnPoint.position;
         transform.rotation = foxSpawnPoint.rotation;
     }

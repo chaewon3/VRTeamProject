@@ -10,25 +10,37 @@ public class AnimalTransparency : MonoBehaviour
     // rgb ดย 255, 237, 239
 
     float transparency;
+    public float duration = 1.0f;
 
-    private void Start()
+    private void Awake()
+    {
+        
+    }
+
+
+    private void OnEnable()
     {
         objectRenderer = GetComponentInChildren<Renderer>();
 
         Color newColor = new Color(255f / 255f, 237f / 255f, 239f / 255f);
 
         objectRenderer.material.color = newColor;
+    }
+
+    private void Start()
+    {
+        DisspearCoroutine();
 
     }
 
     public void DisspearCoroutine()
     {
-        StartCoroutine("BeInvisible");
+        StartCoroutine(BeInvisible());
     }
 
     IEnumerator BeInvisible()
     {
-        float time = 1.0f;
+        float time = duration;
         transparency = 1.0f;
 
         objectRenderer.material.shader = Shader.Find("Standard");
@@ -61,7 +73,7 @@ public class AnimalTransparency : MonoBehaviour
 
     IEnumerator BeVisible()
     {
-        float time = 1.0f;
+        float time = duration;
         transparency = 0;
         bool isOpaque = false;
 

@@ -746,13 +746,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87678383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2129491657}
-  - {fileID: 1203306054}
   - {fileID: 937598096}
+  - {fileID: 1203306054}
+  - {fileID: 2129491657}
   - {fileID: 512485195}
   - {fileID: 1535921159}
   m_Father: {fileID: 0}
@@ -2238,13 +2238,13 @@ MonoBehaviour:
   foxarr:
   - henTransform: {fileID: 1560983541}
     foxObject: {fileID: 0}
-    foxSpawnPoint: {fileID: 2129491657}
+    foxSpawnPoint: {fileID: 937598096}
   - henTransform: {fileID: 154954501}
     foxObject: {fileID: 0}
     foxSpawnPoint: {fileID: 1203306054}
   - henTransform: {fileID: 477234549}
     foxObject: {fileID: 0}
-    foxSpawnPoint: {fileID: 937598096}
+    foxSpawnPoint: {fileID: 2129491657}
   - henTransform: {fileID: 473471585}
     foxObject: {fileID: 0}
     foxSpawnPoint: {fileID: 512485195}
@@ -2705,7 +2705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473471584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.09, y: 0, z: -0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4210,7 +4210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937598096}
   m_Layer: 0
-  m_Name: FoxSpawnPont_Three
+  m_Name: FoxSpawnPont_One
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4229,7 +4229,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 87678384}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 63.734, z: -0.003}
 --- !u!1001 &949699968
 PrefabInstance:
@@ -7473,7 +7473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560983540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.758, y: 0, z: -0.186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10355,7 +10355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129491657}
   m_Layer: 0
-  m_Name: FoxSpawnPont_One
+  m_Name: FoxSpawnPont_Three
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -10374,7 +10374,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 87678384}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 44.31, z: 0}
 --- !u!1001 &2141847728
 PrefabInstance:

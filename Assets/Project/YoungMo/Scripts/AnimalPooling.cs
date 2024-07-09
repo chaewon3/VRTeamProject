@@ -17,9 +17,12 @@ public class AnimalPooling : MonoBehaviour
 {
     public GameObject foxPrefab;
 
-    public FoxArr[] foxarr;
+    // 리스트로 바꾸고 여우가 리스트 삭제하게 만들기
+    // 랜덤은 List.count로 하면 될 것 같음
+    public List<FoxArr> foxarr;
 
-    public float foxSpawnPeriod = 3.0f;
+    
+    public float foxSpawnPeriod = 1.0f;
 
     public bool OnGame = true;
 
@@ -56,55 +59,64 @@ public class AnimalPooling : MonoBehaviour
     */
     #endregion
 
+    int rndValue;
+    int newRndValue;
 
     private IEnumerator Start()
     {
+
         while (OnGame)
         {
             yield return new WaitForSeconds(foxSpawnPeriod);
-            int rndValue = Random.Range(0, 5);
+
+            rndValue = Random.Range(0, 5);
+
+
+            // 오브젝트가 null인지 체크하고 오브젝트가 활성화되어 있는지 체크해야 함
+
+            // 오류 뜨는 이유는 canMove가 true가 되는데 true가 되었을 때 업데이트 문에 있는 트랜스폼을 참조하지 못하기 때문에 발생
+            // 하는 것 같음
+
+            if (foxarr[rndValue].foxObject == null)
+            {
+                print("null");
+            }
+
+            if (foxarr[rndValue].foxSpawnPoint == null)
+            {
+                print("point null");
+            }
+
+            if (foxarr[rndValue].henTransform == null)
+            {
+                print("hen null");
+            }
 
             FoxSpawn(rndValue);
-
-
         }
     }
 
     void FoxSpawn(int index)
     {
 
-        if (foxarr[index].foxObject != null)
+        if (foxarr[index].foxObject == null)
         {
-            //foxarr[index].foxObject.transform.position = foxarr[index].foxSpawnPoint.transform.position;
-            //foxarr[index].foxObject.transform.rotation = foxarr[index].foxSpawnPoint.transform.rotation;
+
+            GameObject foxPrefabIntance = Instantiate(foxPrefab, foxarr[index].foxSpawnPoint.position, foxarr[index].foxSpawnPoint.rotation);
+            foxarr[index].foxObject = foxPrefabIntance;
+
             foxarr[index].foxObject.GetComponent<FoxController>().SetHenTransform(foxarr[index].henTransform);
             foxarr[index].foxObject.GetComponent<FoxController>().SetFoxSpawnPoint(foxarr[index].foxSpawnPoint);
-            foxarr[index].foxObject = Instantiate(foxPrefab, foxarr[index].foxSpawnPoint.position, foxarr[index].foxSpawnPoint.rotation);
 
-            foxarr[index].foxObject.SetActive(true);
+            foxarr[index].foxObject.GetComponent<FoxController>().SetFoxTransform();
+
         }
         else
         {
-            foxarr[index].foxObject.GetComponent<FoxController>().SetFoxTransform();
+            //foxarr[index].foxObject.GetComponent<FoxController>().SetFoxTransform();
             foxarr[index].foxObject.SetActive(true);
         }
-        //if (foxarr[index] != null)
-        //{
-        //    if (foxarr[index].foxObject != null && foxarr[index].foxSpawnPoint != null)
-        //    {
-        //        foxarr[index].foxObject.transform.position = foxarr[index].foxSpawnPoint.position;
-        //        foxarr[index].foxObject.transform.rotation = foxarr[index].foxSpawnPoint.rotation;
-        //        foxarr[index].foxObject.transform.localScale = foxarr[index].foxSpawnPoint.localScale;
-        //    }
-        //    else
-        //    {
-        //        Debug.LogError("foxObject 또는 foxSpawnPoint가 null입니다.");
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.LogError("foxarr[" + index + "]가 null입니다.");
-        //}
+
 
     }
 
