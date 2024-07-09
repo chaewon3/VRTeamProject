@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
-    public LayerMask targetLayer;
 
     private void OnTriggerEnter(Collider other)
     {
