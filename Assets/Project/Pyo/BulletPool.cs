@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class BulletPool : MonoBehaviour
 {
-    ObjectPooling pool;
-    float speed = 300f;
+    BulletPooling pool;
+    float speed = 1000f;
     public Transform SpawnPoint;
 
     void Awake()
     {
         if(pool == null)
         {
-            pool = GetComponent<ObjectPooling>();
+            pool = GetComponent<BulletPooling>();
         }
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine("DespawnCoroution");
     }
 
     public void Shoot()
     {
-        print(" shot ½ÇÇà");
         GameObject obj = pool.GetObj();
-        StartCoroutine(DespawnCoroution(obj));
-        if (obj.TryGetComponent(out Rigidbody rigidBody))
-            ApplyForce(rigidBody);
+        if(obj != null)
+        {
+            StartCoroutine(DespawnCoroution(obj));
+            if (obj.TryGetComponent(out Rigidbody rigidBody))
+                ApplyForce(rigidBody);
+        }
     }
 
     void ApplyForce(Rigidbody rigidBody)
@@ -33,7 +40,7 @@ public class BulletPool : MonoBehaviour
 
     IEnumerator DespawnCoroution(GameObject obj)
     {
-        yield return new WaitForSeconds(3f);
-        pool.ReturnObj(obj);
+        yield return new WaitForSeconds(.5f);
+        obj.SetActive(false);
     }
 }

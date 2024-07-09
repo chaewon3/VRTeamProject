@@ -6,8 +6,18 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [HideInInspector]
     public bool Playing;
-    public int Heart = 5;
+    private int Heart = 5;
+
+    public int Life
+    {
+        get { return Heart; }
+        set
+        {
+            Heart -= value;
+        }
+    }
 
     private void Awake()
     {
