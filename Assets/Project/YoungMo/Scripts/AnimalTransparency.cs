@@ -21,6 +21,11 @@ public class AnimalTransparency : MonoBehaviour
 
     }
 
+    public void DisspearCoroutine()
+    {
+        StartCoroutine("BeInvisible");
+    }
+
     IEnumerator BeInvisible()
     {
         float time = 1.0f;

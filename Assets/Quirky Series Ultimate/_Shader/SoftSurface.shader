@@ -5,6 +5,7 @@
         _Color ("Color", Color) = (0.4,0.4,0.4,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Emission ("Emission", Range (0,1)) = 0.5
+        _Alpha ("Alpha", Range (0,1)) = 1
     }
     SubShader
     {

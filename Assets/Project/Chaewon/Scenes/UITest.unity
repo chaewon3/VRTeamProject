@@ -1500,6 +1500,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 445340, guid: d5401113bd3ec43afbd00283916fb8a8, type: 3}
   m_PrefabInstance: {fileID: 1320121014}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &277686917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 277686918}
+  m_Layer: 0
+  m_Name: FoxSpawnPont_Two
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &277686918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277686917}
+  m_LocalRotation: {x: -0.000004108365, y: 0.4668111, z: -0.000007783151, w: 0.88435704}
+  m_LocalPosition: {x: -28.508656, y: 0, z: -16.096102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235349357}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 55.655, z: -0.001}
 --- !u!1001 &301797907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1629,6 +1660,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5633743361857967782, guid: 3b4feef39c72a493c88a7f3669776a3a, type: 3}
   m_PrefabInstance: {fileID: 1926627394}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &328002666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328002667}
+  m_Layer: 0
+  m_Name: FoxSpawnPont_Five
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &328002667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328002666}
+  m_LocalRotation: {x: 0.00000915901, y: -0.52593935, z: -0.000014811481, w: 0.8505221}
+  m_LocalPosition: {x: 32.593468, y: 0, z: -2.637001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235349357}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -63.463, z: -0.002}
 --- !u!1001 &332874043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6299,6 +6361,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 498820, guid: c8117e5eb39c2443bbcca5ccb56ec562, type: 3}
   m_PrefabInstance: {fileID: 429349388}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1126668096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126668098}
+  - component: {fileID: 1126668097}
+  m_Layer: 0
+  m_Name: Fox Pooling Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1126668097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126668096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc047f4abaa6554e9320dec70d8b3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foxPrefab: {fileID: 4586020781640647465, guid: 2e92d6e7fb16c7148a201b1dd02233c1, type: 3}
+  foxarr:
+  - henTransform: {fileID: 0}
+    foxObject: {fileID: 0}
+    foxSpawnPoint: {fileID: 1687583555}
+  - henTransform: {fileID: 0}
+    foxObject: {fileID: 0}
+    foxSpawnPoint: {fileID: 277686918}
+  - henTransform: {fileID: 0}
+    foxObject: {fileID: 0}
+    foxSpawnPoint: {fileID: 1877949872}
+  - henTransform: {fileID: 0}
+    foxObject: {fileID: 0}
+    foxSpawnPoint: {fileID: 1452237487}
+  - henTransform: {fileID: 0}
+    foxObject: {fileID: 0}
+    foxSpawnPoint: {fileID: 328002667}
+  foxSpawnPeriod: 3
+  OnGame: 1
+--- !u!4 &1126668098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126668096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5741353, y: 6.7215476, z: -6.7810845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1132775605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6799,6 +6924,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3078124929395302592, guid: dce9c9e444374b944bbe648df744fbb4, type: 3}
   m_PrefabInstance: {fileID: 359757949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1235349356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235349357}
+  m_Layer: 0
+  m_Name: FoxSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1235349357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235349356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1687583555}
+  - {fileID: 277686918}
+  - {fileID: 1877949872}
+  - {fileID: 1452237487}
+  - {fileID: 328002667}
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1238399559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 445340, guid: d5401113bd3ec43afbd00283916fb8a8, type: 3}
@@ -7857,6 +8018,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511008ffae6ab11459f4abdc9e6f876c, type: 3}
+--- !u!1 &1452237486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1452237487}
+  m_Layer: 0
+  m_Name: FoxSpawnPont_Four
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1452237487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452237486}
+  m_LocalRotation: {x: 0.000007114184, y: -0.2713733, z: -0.000025231733, w: 0.9624742}
+  m_LocalPosition: {x: 18.953707, y: 0, z: -28.184626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235349357}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -31.492, z: -0.003}
 --- !u!1001 &1454548879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9037,6 +9229,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dddc243279734a6a9f3efdcce54e145, type: 3}
+--- !u!1 &1687583554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1687583555}
+  m_Layer: 0
+  m_Name: FoxSpawnPont_One
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1687583555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687583554}
+  m_LocalRotation: {x: 0, y: 0.37711343, z: 0, w: 0.9261671}
+  m_LocalPosition: {x: -10.845518, y: 0, z: -28.930147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235349357}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 44.31, z: 0}
 --- !u!4 &1694754293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 499964, guid: 14e215a471953419a9b6be9d5fb72580, type: 3}
@@ -10416,6 +10639,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0072c8906ca84f788e44d58e79e130e, type: 3}
+--- !u!1 &1877949871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1877949872}
+  m_Layer: 0
+  m_Name: FoxSpawnPont_Three
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1877949872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877949871}
+  m_LocalRotation: {x: -0.000013840448, y: 0.5279493, z: -0.000022264183, w: 0.8492759}
+  m_LocalPosition: {x: -31.732315, y: 0, z: 5.5848317}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235349357}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 63.734, z: -0.003}
 --- !u!4 &1887779361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 434970, guid: 3c1c9cb704f1442038963c766c673374, type: 3}
