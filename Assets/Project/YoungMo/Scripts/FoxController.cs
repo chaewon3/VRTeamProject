@@ -9,6 +9,7 @@ public class FoxController : MonoBehaviour
 
     Transform henTransform;
     public Transform foxSpawnPoint;
+    int foxIndex;
 
     // 이렇게 해놓고 오브젝트 풀링을 통해
     // 닭과 여우 스폰 위치를 저장하고 활성화 될때 부여하기
@@ -26,7 +27,9 @@ public class FoxController : MonoBehaviour
     private void OnEnable()
     {
         at = GetComponent<AnimalTransparency>();
+
         StartCoroutine(FoxAppear());
+       
 
     }
 
@@ -40,7 +43,11 @@ public class FoxController : MonoBehaviour
         }
         //at.DisspearCoroutine();
         yield return new WaitForSeconds(at.duration);
+
+        AnimalPooling.instance.usingIndex.Add(foxIndex);
+        print($"foxindex : {foxIndex}");
         canMove = true;
+
     }
 
     public float speed = 5f; // 이동 속도
@@ -66,6 +73,7 @@ public class FoxController : MonoBehaviour
             if (Vector3.Magnitude(currentPosition - targetPosition) <= 1)
             {
                 canMove = false;
+                StartCoroutine(FoxAttack());
 
             }
         }
@@ -78,6 +86,10 @@ public class FoxController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void SetIndex(int index)
+    {
+        foxIndex = index;
+    }
 
     public void SetHenTransform(Transform value)
     {
