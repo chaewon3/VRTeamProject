@@ -14,12 +14,6 @@ public class AnimalTransparency : MonoBehaviour
 
     private void Awake()
     {
-        
-    }
-
-
-    private void OnEnable()
-    {
         objectRenderer = GetComponentInChildren<Renderer>();
 
         Color newColor = new Color(255f / 255f, 237f / 255f, 239f / 255f);
@@ -27,15 +21,20 @@ public class AnimalTransparency : MonoBehaviour
         objectRenderer.material.color = newColor;
     }
 
-    private void Start()
-    {
-        DisspearCoroutine();
 
+    private void OnEnable()
+    {
+        AppearCoroutine();
     }
 
     public void DisspearCoroutine()
     {
         StartCoroutine(BeInvisible());
+    }
+
+    public void AppearCoroutine()
+    {
+        StartCoroutine(BeVisible());
     }
 
     IEnumerator BeInvisible()
@@ -55,7 +54,7 @@ public class AnimalTransparency : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
             time -= Time.deltaTime;
             transparency -= Time.deltaTime;
 
@@ -95,7 +94,7 @@ public class AnimalTransparency : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(2f *Time.deltaTime);
+            yield return null;
 
             time -= Time.deltaTime;
             transparency += Time.deltaTime;
@@ -111,8 +110,6 @@ public class AnimalTransparency : MonoBehaviour
                 objectRenderer.material.DisableKeyword("_ALPHABLEND_ON");
                 objectRenderer.material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 objectRenderer.material.renderQueue = -1;
-
-                
 
                 color = objectRenderer.material.color;
                 color.a = 1f;

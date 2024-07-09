@@ -9,7 +9,6 @@ public class FoxController : MonoBehaviour
 
     Transform henTransform;
     public Transform foxSpawnPoint;
-    bool alreadyReferred = false;
 
     // 이렇게 해놓고 오브젝트 풀링을 통해
     // 닭과 여우 스폰 위치를 저장하고 활성화 될때 부여하기
@@ -23,17 +22,9 @@ public class FoxController : MonoBehaviour
     AnimalTransparency at;
     bool canMove = false;
 
-    private void Start()
-    {
-        
-    }
 
     private void OnEnable()
     {
-        if (alreadyReferred)
-        {
-            
-        }
         at = GetComponent<AnimalTransparency>();
         StartCoroutine(FoxAppear());
 
@@ -101,13 +92,6 @@ public class FoxController : MonoBehaviour
     {
         if (foxSpawnPoint == null)
         {
-            print("foxspawn error");
-            return;
-        }
-
-        if (this.gameObject == null)
-        {
-            print("foxObject error");
             return;
         }
 

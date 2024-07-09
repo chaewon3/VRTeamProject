@@ -17,8 +17,6 @@ public class AnimalPooling : MonoBehaviour
 {
     public GameObject foxPrefab;
 
-    // 리스트로 바꾸고 여우가 리스트 삭제하게 만들기
-    // 랜덤은 List.count로 하면 될 것 같음
     public List<FoxArr> foxarr;
 
     
@@ -71,27 +69,6 @@ public class AnimalPooling : MonoBehaviour
 
             rndValue = Random.Range(0, 5);
 
-
-            // 오브젝트가 null인지 체크하고 오브젝트가 활성화되어 있는지 체크해야 함
-
-            // 오류 뜨는 이유는 canMove가 true가 되는데 true가 되었을 때 업데이트 문에 있는 트랜스폼을 참조하지 못하기 때문에 발생
-            // 하는 것 같음
-
-            if (foxarr[rndValue].foxObject == null)
-            {
-                print("null");
-            }
-
-            if (foxarr[rndValue].foxSpawnPoint == null)
-            {
-                print("point null");
-            }
-
-            if (foxarr[rndValue].henTransform == null)
-            {
-                print("hen null");
-            }
-
             FoxSpawn(rndValue);
         }
     }
@@ -113,7 +90,6 @@ public class AnimalPooling : MonoBehaviour
         }
         else
         {
-            //foxarr[index].foxObject.GetComponent<FoxController>().SetFoxTransform();
             foxarr[index].foxObject.SetActive(true);
         }
 
