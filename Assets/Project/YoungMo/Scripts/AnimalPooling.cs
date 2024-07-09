@@ -9,18 +9,19 @@ public class FoxArr
 
     public GameObject foxObject;
 
-    public GameObject foxSpawnPoint;
+    public Transform foxSpawnPoint;
 
 }
 
 public class AnimalPooling : MonoBehaviour
 {
-    
+    public GameObject foxPrefab;
 
     public FoxArr[] foxarr;
 
     public float foxSpawnPeriod = 3.0f;
 
+    public bool OnGame = true;
 
     #region 닭 목숨 관련
     /*
@@ -58,10 +59,15 @@ public class AnimalPooling : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(foxSpawnPeriod);
-        int rndValue = Random.Range(0, 5);
+        while (OnGame)
+        {
+            yield return new WaitForSeconds(foxSpawnPeriod);
+            int rndValue = Random.Range(0, 5);
 
-        FoxSpawn(rndValue);
+            FoxSpawn(rndValue);
+
+
+        }
     }
 
     void FoxSpawn(int index)
@@ -69,32 +75,39 @@ public class AnimalPooling : MonoBehaviour
 
         if (foxarr[index].foxObject != null)
         {
-            foxarr[index].foxObject.transform.position = foxarr[index].foxSpawnPoint.transform.position;
-            foxarr[index].foxObject.transform.rotation = foxarr[index].foxSpawnPoint.transform.rotation;
+            //foxarr[index].foxObject.transform.position = foxarr[index].foxSpawnPoint.transform.position;
+            //foxarr[index].foxObject.transform.rotation = foxarr[index].foxSpawnPoint.transform.rotation;
+            foxarr[index].foxObject.GetComponent<FoxController>().SetHenTransform(foxarr[index].henTransform);
+            foxarr[index].foxObject.GetComponent<FoxController>().SetFoxSpawnPoint(foxarr[index].foxSpawnPoint);
+            foxarr[index].foxObject = Instantiate(foxPrefab, foxarr[index].foxSpawnPoint.position, foxarr[index].foxSpawnPoint.rotation);
+
+            foxarr[index].foxObject.SetActive(true);
         }
-
-
-
-
-        switch (index)
+        else
         {
-            case 0:
-
-                break;
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
+            foxarr[index].foxObject.GetComponent<FoxController>().SetFoxTransform();
+            foxarr[index].foxObject.SetActive(true);
         }
+        //if (foxarr[index] != null)
+        //{
+        //    if (foxarr[index].foxObject != null && foxarr[index].foxSpawnPoint != null)
+        //    {
+        //        foxarr[index].foxObject.transform.position = foxarr[index].foxSpawnPoint.position;
+        //        foxarr[index].foxObject.transform.rotation = foxarr[index].foxSpawnPoint.rotation;
+        //        foxarr[index].foxObject.transform.localScale = foxarr[index].foxSpawnPoint.localScale;
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError("foxObject 또는 foxSpawnPoint가 null입니다.");
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.LogError("foxarr[" + index + "]가 null입니다.");
+        //}
+
     }
+
 
 
 }
