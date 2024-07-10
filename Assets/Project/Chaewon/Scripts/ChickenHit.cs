@@ -9,7 +9,6 @@ public class ChickenHit : MonoBehaviour
     Collider collider;
     List<Animator> animator =  new List<Animator>();
     List<AnimalTransparency> animaltransparency = new List<AnimalTransparency>();
-    AudioSource audio;
 
 
     private void Awake()
@@ -23,7 +22,6 @@ public class ChickenHit : MonoBehaviour
         {
             animaltransparency.Add(transform.GetChild(i).GetComponent<AnimalTransparency>());
         }
-        audio = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,7 +48,6 @@ public class ChickenHit : MonoBehaviour
 
     IEnumerator ChickenDead()
     {
-        audio.Play();
         GameManager.Instance.Life = 1;
         foreach (AnimalTransparency animal in animaltransparency)
         {
