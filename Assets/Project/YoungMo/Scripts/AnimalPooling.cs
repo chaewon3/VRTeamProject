@@ -91,24 +91,27 @@ public class AnimalPooling : MonoBehaviour
 
         while (OnGame)
         {
-            List<int> zeroIndexes = new List<int>();
-
-            for (int i = 0; i < foxIndexArr.Length; ++i)
+            if(GameManager.Instance.Playing)
             {
-                if (foxIndexArr[i] == 0)
+                List<int> zeroIndexes = new List<int>();
+
+                for (int i = 0; i < foxIndexArr.Length; ++i)
                 {
-                    zeroIndexes.Add(i);
+                    if (foxIndexArr[i] == 0)
+                    {
+                        zeroIndexes.Add(i);
+                    }
                 }
-            }
 
-            if (zeroIndexes.Count > 0)
-            {
-                int randomIndex = zeroIndexes[Random.Range(0, zeroIndexes.Count)];
-                foxIndexArr[randomIndex] = 1;
-                //print($"randomIndex : {randomIndex}");
-                FoxSpawn(randomIndex);
-            }
+                if (zeroIndexes.Count > 0)
+                {
+                    int randomIndex = zeroIndexes[Random.Range(0, zeroIndexes.Count)];
+                    foxIndexArr[randomIndex] = 1;
+                    //print($"randomIndex : {randomIndex}");
+                    FoxSpawn(randomIndex);
+                }
 
+            }
             yield return new WaitForSeconds(foxSpawnPeriod);
 
         }

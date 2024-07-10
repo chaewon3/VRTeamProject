@@ -29,6 +29,10 @@ public class TimeLimit : MonoBehaviour
 
     private void Update()
     {
+        if(GameManager.Instance.Life <= 0)
+        {
+            time = 0;
+        }
         if(GameManager.Instance.Playing)
         {
             time -= Time.deltaTime;
