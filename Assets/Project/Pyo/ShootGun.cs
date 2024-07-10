@@ -7,16 +7,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ShootGun : MonoBehaviour
 {
     BulletPool pool;
-
-    //public ActionBasedController targetCont;
     ActionBasedController targetCont;
     private InputActionReference activateRef;
 
     void Awake()
     {
         pool = FindObjectOfType<BulletPool>();
-        //targetCont = FindObjectOfType<ActionBasedController>();
         targetCont = GameObject.Find("Right Controller").GetComponent<ActionBasedController>();
+        if(targetCont != null)
         activateRef = targetCont.activateAction.reference;
     }
 
@@ -27,24 +25,18 @@ public class ShootGun : MonoBehaviour
 
     private void OnEnable()
     {
-        if(activateRef == null)
-        {
-            activateRef = targetCont.activateAction.reference;
-        }
         activateRef.action.performed += OnActivateEventCall;
     }
     private void OnDisable()
     {
-        if (activateRef == null)
-        {
-            activateRef = targetCont.activateAction.reference;
-        }
         activateRef.action.performed -= OnActivateEventCall;
     }
 
     private IEnumerator Start()
     {
         yield return new WaitForEndOfFrame();
+        
+        
         //activateRef.action.performed -= OnActivateEventCall;
         //activateRef.action.performed += OnActivateEventCall;
         ///*delegate (InputAction.CallbackContext context)
