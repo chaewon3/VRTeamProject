@@ -22,9 +22,8 @@ public class AnimalPooling : MonoBehaviour
 
     public List<FoxArr> foxarr;
 
-    int[] foxIndexArr = { 0,0,0,0,0};
+    public int[] foxIndexArr = { 0,0,0,0,0};
 
-    public List<int> usingIndex = new List<int>();
     // 리스트 말고 2차원 배열로 지정해 놓는게 나을 것 같음
     // 닭이 죽고나서 4초정도 후에 부활해야 하는데
     // 그냥 1차원 배열 해놓고 값으로 비교해도 될 것 같음
@@ -92,26 +91,26 @@ public class AnimalPooling : MonoBehaviour
 
         while (OnGame)
         {
-            isUnique = true;
+            List<int> zeroIndexes = new List<int>();
 
-            rndValue = Random.Range(0, foxarr.Count);
-            
-
-            for (int i = 0; i < usingIndex.Count; ++i)
+            for (int i = 0; i < foxIndexArr.Length; ++i)
             {
-                if (rndValue == usingIndex[i])
+                if (foxIndexArr[i] == 0)
                 {
-                    isUnique = false;
-                    break;
+                    zeroIndexes.Add(i);
                 }
             }
 
-            if (isUnique)
+            if (zeroIndexes.Count > 0)
             {
-                print($"rndValue : {rndValue}");
-                FoxSpawn(rndValue);
-                yield return new WaitForSeconds(foxSpawnPeriod);
+                int randomIndex = zeroIndexes[Random.Range(0, zeroIndexes.Count)];
+                foxIndexArr[randomIndex] = 1;
+                print($"randomIndex : {randomIndex}");
+                FoxSpawn(randomIndex);
             }
+
+            yield return new WaitForSeconds(foxSpawnPeriod);
+
         }
     }
 
