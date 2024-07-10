@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class FoxArr
 {
-    public Transform henTransform;
+    public GameObject henTransform;
 
     public GameObject foxObject;
 
@@ -22,7 +22,7 @@ public class AnimalPooling : MonoBehaviour
 
     public List<FoxArr> foxarr;
 
-    public int[] foxIndexArr = { 0,0,0,0,0};
+    public int[] foxIndexArr = { 0, 0, 0, 0, 0 };
 
     // 리스트 말고 2차원 배열로 지정해 놓는게 나을 것 같음
     // 닭이 죽고나서 4초정도 후에 부활해야 하는데
@@ -39,7 +39,7 @@ public class AnimalPooling : MonoBehaviour
         이렇게 되면 foxController에서 공격 후 사라져 1을 0으로 만드는 것만 하면 될듯 add는 하지 않고
     */
 
-    
+
     public float foxSpawnPeriod = 3.0f;
 
     public bool OnGame = true;
@@ -105,7 +105,7 @@ public class AnimalPooling : MonoBehaviour
             {
                 int randomIndex = zeroIndexes[Random.Range(0, zeroIndexes.Count)];
                 foxIndexArr[randomIndex] = 1;
-                print($"randomIndex : {randomIndex}");
+                //print($"randomIndex : {randomIndex}");
                 FoxSpawn(randomIndex);
             }
 
@@ -116,7 +116,7 @@ public class AnimalPooling : MonoBehaviour
 
     void FoxSpawn(int index)
     {
-        print($"index: {index}");
+        //print($"index: {index}");
 
         if (foxarr[index].foxObject == null)
         {

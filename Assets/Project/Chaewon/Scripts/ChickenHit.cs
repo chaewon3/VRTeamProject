@@ -9,7 +9,11 @@ public class ChickenHit : MonoBehaviour
     Collider collider;
     List<Animator> animator =  new List<Animator>();
     List<AnimalTransparency> animaltransparency = new List<AnimalTransparency>();
+    AudioSource audio;
 
+
+    List<GameObject> flocks = new List<GameObject>();
+    int foxIndex;
 
     private void Awake()
     {
@@ -22,27 +26,24 @@ public class ChickenHit : MonoBehaviour
         {
             animaltransparency.Add(transform.GetChild(i).GetComponent<AnimalTransparency>());
         }
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            flocks.Add(transform.GetChild(i).gameObject);
+        }
+
+
+        audio = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        print($"¿©¿ì·¹À× {other.gameObject.layer} Å¸°Ù·¹ÀÌ¾î {targetlayer}");
-
         if (other.gameObject.layer == 6)
         {
             foreach (Animator anim in animator)
             {
                 anim.SetTrigger("IsFear");
             }
-            StartCoroutine(Attacted());
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == targetlayer)
-        {
-            StopCoroutine(Attacted());
+            //StartCoroutine(Attacked());
         }
     }
 
@@ -53,17 +54,48 @@ public class ChickenHit : MonoBehaviour
         {
             animal.DisspearCoroutine();
         }
-        yield return new WaitForSeconds(1);
-        gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.0f);
+
+        foreach (GameObject animal in flocks)
+        {
+            animal.SetActive(false);
+        }
+        StartCoroutine(RespawnFlock());
     }
 
-    IEnumerator Attacted()
+    public void StartAttackedFunc()
     {
-        yield return new WaitForSeconds(3.5f);
+        StartCoroutine(Attacked());
+    }
+
+    IEnumerator Attacked()
+    {
+        AnimalPooling.instance.foxIndexArr[foxIndex] = 1;
+
         foreach (Animator anim in animator)
         {
             anim.SetTrigger("IsDead");
         }
         StartCoroutine(ChickenDead());
+
+        yield return null;
     }
+
+    IEnumerator RespawnFlock()
+    {
+        yield return new WaitForSeconds(4.0f);
+
+        foreach (GameObject animal in flocks)
+        {
+            animal.SetActive(true);
+        }
+
+        AnimalPooling.instance.foxIndexArr[foxIndex] = 0;
+    }
+
+    public void SetIndex(int index)
+    {
+        foxIndex = index;
+    }
+
 }

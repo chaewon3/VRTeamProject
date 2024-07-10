@@ -6,6 +6,8 @@ public class FoxHit : MonoBehaviour, IHitable
 {
     public bool isDie;
 
+    readonly int IsDead = Animator.StringToHash("IsDead");
+
     public float maxHP;
     public float currentHP;
     private Animator animation;
@@ -21,7 +23,7 @@ public class FoxHit : MonoBehaviour, IHitable
     {
         if (currentHP <= 0)
         {
-            animation.SetTrigger("IsDead");
+            animation.SetTrigger(IsDead);
             //animaltransparency.DisspearCoroutine();
             StartCoroutine(FoxDisappear());
         }
