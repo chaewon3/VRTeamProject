@@ -14,8 +14,8 @@ public class ShootGun : MonoBehaviour
     {
         pool = FindObjectOfType<BulletPool>();
         targetCont = GameObject.Find("Right Controller").GetComponent<ActionBasedController>();
-        if(targetCont != null)
-        activateRef = targetCont.activateAction.reference;
+        print("targetCont วาด็ ");
+        
     }
 
     public void OnActivate()
@@ -35,8 +35,7 @@ public class ShootGun : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForEndOfFrame();
-        
-        
+        activateRef = targetCont.activateAction.reference;
         //activateRef.action.performed -= OnActivateEventCall;
         //activateRef.action.performed += OnActivateEventCall;
         ///*delegate (InputAction.CallbackContext context)
