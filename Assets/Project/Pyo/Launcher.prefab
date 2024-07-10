@@ -705,7 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07b8f91aeb7f86149a857b6d3ff7cf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 9031775881104408046, guid: 3976a13353f30c74891ad6e9052aaa18, type: 3}
+  prefab: {fileID: 9031775881104408046, guid: 57e34032fb9f45343bb98d91e8e2a1ed, type: 3}
   SpawnPoint: {fileID: 1656951653870227076}
   bulletCountText: {fileID: 4496204407192902442}
 --- !u!114 &6371026839908961663

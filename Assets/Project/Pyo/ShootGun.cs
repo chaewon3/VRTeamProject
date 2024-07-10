@@ -12,7 +12,7 @@ public class ShootGun : MonoBehaviour
     ActionBasedController targetCont;
     private InputActionReference activateRef;
 
-    private void Awake()
+    void Awake()
     {
         pool = FindObjectOfType<BulletPool>();
         //targetCont = FindObjectOfType<ActionBasedController>();
@@ -28,10 +28,18 @@ public class ShootGun : MonoBehaviour
 
     private void OnEnable()
     {
+        if(activateRef == null)
+        {
+            activateRef = targetCont.activateAction.reference;
+        }
         activateRef.action.performed += OnActivateEventCall;
     }
     private void OnDisable()
     {
+        if (activateRef == null)
+        {
+            activateRef = targetCont.activateAction.reference;
+        }
         activateRef.action.performed -= OnActivateEventCall;
     }
 

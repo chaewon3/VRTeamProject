@@ -15,14 +15,36 @@ public class FoxArr
 
 public class AnimalPooling : MonoBehaviour
 {
+    public static AnimalPooling instance;
+
+
     public GameObject foxPrefab;
 
     public List<FoxArr> foxarr;
 
+    public int[] foxIndexArr = { 0,0,0,0,0};
+
+    // 리스트 말고 2차원 배열로 지정해 놓는게 나을 것 같음
+    // 닭이 죽고나서 4초정도 후에 부활해야 하는데
+    // 그냥 1차원 배열 해놓고 값으로 비교해도 될 것 같음
+
+    /*
+        index: 0 1 2 3 4
+        value: 0 0 0 0 0
+        
+        이런 식으로 만들고 뽑지 않을 숫자는 0을 1로 만들어서 뽑지 않음
     
-    public float foxSpawnPeriod = 1.0f;
+        게임 매니저나 어디서든 닭이 4초 후에 부활하면 여우 인덱스가 1이 된걸 0으로 다시 바꾸기
+
+        이렇게 되면 foxController에서 공격 후 사라져 1을 0으로 만드는 것만 하면 될듯 add는 하지 않고
+    */
+
+    
+    public float foxSpawnPeriod = 3.0f;
 
     public bool OnGame = true;
+
+    bool isUnique;
 
     #region 닭 목숨 관련
     /*
@@ -58,32 +80,53 @@ public class AnimalPooling : MonoBehaviour
     #endregion
 
     int rndValue;
-    int newRndValue;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private IEnumerator Start()
     {
 
         while (OnGame)
         {
+            List<int> zeroIndexes = new List<int>();
+
+            for (int i = 0; i < foxIndexArr.Length; ++i)
+            {
+                if (foxIndexArr[i] == 0)
+                {
+                    zeroIndexes.Add(i);
+                }
+            }
+
+            if (zeroIndexes.Count > 0)
+            {
+                int randomIndex = zeroIndexes[Random.Range(0, zeroIndexes.Count)];
+                foxIndexArr[randomIndex] = 1;
+                print($"randomIndex : {randomIndex}");
+                FoxSpawn(randomIndex);
+            }
+
             yield return new WaitForSeconds(foxSpawnPeriod);
 
-            rndValue = Random.Range(0, 5);
-
-            FoxSpawn(rndValue);
         }
     }
 
     void FoxSpawn(int index)
     {
+        print($"index: {index}");
 
         if (foxarr[index].foxObject == null)
         {
-
             GameObject foxPrefabIntance = Instantiate(foxPrefab, foxarr[index].foxSpawnPoint.position, foxarr[index].foxSpawnPoint.rotation);
             foxarr[index].foxObject = foxPrefabIntance;
 
             foxarr[index].foxObject.GetComponent<FoxController>().SetHenTransform(foxarr[index].henTransform);
             foxarr[index].foxObject.GetComponent<FoxController>().SetFoxSpawnPoint(foxarr[index].foxSpawnPoint);
+
+            foxarr[index].foxObject.GetComponent<FoxController>().SetIndex(index);
 
             foxarr[index].foxObject.GetComponent<FoxController>().SetFoxTransform();
 
@@ -93,9 +136,7 @@ public class AnimalPooling : MonoBehaviour
             foxarr[index].foxObject.SetActive(true);
         }
 
-
     }
-
 
 
 }
