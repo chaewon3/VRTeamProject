@@ -1137,6 +1137,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7318579900846706004, guid: ea83b5986a1b3b24c88cb475bdaab2c5, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 2321527512367231968, guid: 561401de031250440bf99e9e03b63250, type: 3}
     - target: {fileID: 9076799373967371082, guid: ea83b5986a1b3b24c88cb475bdaab2c5, type: 3}
       propertyPath: m_Name
       value: XR Interaction Setup
